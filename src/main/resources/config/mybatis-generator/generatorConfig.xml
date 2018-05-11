@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<properties resource="config/mybatis-generator/mybatisGenerator.yml"/>
+    <!--数据库驱动-->
+    <classPathEntry location="C:\Users\leig\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
+    <context id="MySqlTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="${jdbc_driver}" 
+        	connectionURL="${jdbc_url}" 
+        	userId="${jdbc_username}" 
+        	password="${jdbc_password}">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--生成Model类存放位置-->
+        <javaModelGenerator targetPackage="me.leig.filemanager.dao.model" targetProject="${Project}">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="me.leig.filemanager.dao.map" targetProject="${Project}">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--生成Dao类存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="me.leig.filemanager.dao.mapper" targetProject="${Project}">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+		<!--生成对应表及类名-->
+        <!--生成对应表及类名-->
+        <!--生成对应表及类名-->
+        <!--生成对应表及类名-->
+        <!--生成对应表及类名-->
+        <!--生成对应表及类名-->
+        <!--生成对应表及类名-->
+        <!--生成对应表及类名-->
+        <!--生成对应表及类名-->
+        <!--生成对应表及类名-->
+        <table tableName="file" domainObjectName="File" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+    </context>
+</generatorConfiguration>
