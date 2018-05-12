@@ -59,7 +59,7 @@ public class FileService {
 			return responseFiles;
 		}
 		
-		List<File> files = fileMapper.findFiles(rFile.getData());
+		List<File> files = fileMapper.findFiles(file);
 		
 		responseFiles.setRecordCount(total);
 		responseFiles.setPageCount(Toolbox.pageForTotal(total, rFile.getLimit()));

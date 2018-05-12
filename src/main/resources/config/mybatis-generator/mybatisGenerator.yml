@@ -1,5 +1,0 @@
-Project: filemanager
-jdbc_driver: com.mysql.jdbc.Driver
-jdbc_url: jdbc:mysql://localhost:3309/photowall
-jdbc_username: root
-jdbc_password: 123

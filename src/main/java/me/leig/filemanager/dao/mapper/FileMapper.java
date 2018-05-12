@@ -3,23 +3,22 @@ package me.leig.filemanager.dao.mapper;
 import java.util.List;
 
 import me.leig.filemanager.dao.model.File;
-import me.leig.filemanager.dao.model.FileWithBLOBs;
 
 public interface FileMapper {
+	
     int deleteByPrimaryKey(Integer id);
 
-    int insert(FileWithBLOBs record);
+	int insert(File record);
 
-    int insertSelective(FileWithBLOBs record);
+	int insertSelective(File record);
 
-    FileWithBLOBs selectByPrimaryKey(Integer id);
+	File selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(FileWithBLOBs record);
+	int updateByPrimaryKeySelective(File record);
 
-    int updateByPrimaryKeyWithBLOBs(FileWithBLOBs record);
+	int updateByPrimaryKeyWithBLOBs(File record);
 
-    int updateByPrimaryKey(File record);
-    
+	int updateByPrimaryKey(File record);    
     
     /**
      * 查询总记录数

@@ -13,7 +13,7 @@
     <result column="deleteTime" jdbcType="TIMESTAMP" property="deletetime" />
     <result column="deleteFlag" jdbcType="INTEGER" property="deleteflag" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="me.leig.filemanager.dao.model.FileWithBLOBs">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="me.leig.filemanager.dao.model.File">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
     <result column="saveUrl" jdbcType="LONGVARCHAR" property="saveurl" />
     <result column="tempUrl" jdbcType="LONGVARCHAR" property="tempurl" />
@@ -39,7 +39,7 @@
     delete from file
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="me.leig.filemanager.dao.model.FileWithBLOBs">
+  <insert id="insert" parameterType="me.leig.filemanager.dao.model.File">
     insert into file (id, title, fileType, 
       mimeType, fileSize, createTime, 
       uploadTime, updateTime, deleteTime, 
@@ -53,7 +53,7 @@
       #{tempurl,jdbcType=LONGVARCHAR}, #{longitude,jdbcType=LONGVARCHAR}, #{latitude,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="me.leig.filemanager.dao.model.FileWithBLOBs">
+  <insert id="insertSelective" parameterType="me.leig.filemanager.dao.model.File">
     insert into file
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -150,7 +150,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="me.leig.filemanager.dao.model.FileWithBLOBs">
+  <update id="updateByPrimaryKeySelective" parameterType="me.leig.filemanager.dao.model.File">
     update file
     <set>
       <if test="title != null">
@@ -198,7 +198,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="me.leig.filemanager.dao.model.FileWithBLOBs">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="me.leig.filemanager.dao.model.File">
     update file
     set title = #{title,jdbcType=VARCHAR},
       fileType = #{filetype,jdbcType=INTEGER},
@@ -229,7 +229,7 @@
       deleteFlag = #{deleteflag,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-
+  
 	<!-- 自定义方法 -->
 	<!-- 自定义方法 -->
 	<!-- 自定义方法 -->
@@ -241,9 +241,7 @@
 	<!-- 自定义方法 -->
 	<!-- 自定义方法 -->
 	
-	<select id="recordCount"
-		parameterType="me.leig.filemanager.dao.model.File"
-		resultType="java.lang.Integer">
+	<select id="recordCount" parameterType="me.leig.filemanager.dao.model.File" resultType="java.lang.Integer">
 		SELECT
 			COUNT(id)
 		FROM
@@ -288,9 +286,7 @@
 		</if>
 	</select>
 		
-	<select id="findFiles"
-		parameterType="me.leig.filemanager.dao.model.File"
-		resultType="me.leig.filemanager.dao.model.File">
+	<select id="findFiles" parameterType="me.leig.filemanager.dao.model.File" resultType="me.leig.filemanager.dao.model.File">
 		SELECT
 			id,
 			title,
@@ -352,9 +348,7 @@
 		LIMIT #{start,jdbcType=INTEGER}, #{limit,jdbcType=INTEGER}
 	</select>
 
-	<select id="findFile"
-		parameterType="java.lang.Integer"
-		resultType="me.leig.filemanager.dao.model.File">
+	<select id="findFile" parameterType="java.lang.Integer" resultType="me.leig.filemanager.dao.model.File">
 		SELECT
 			id,
 			title,
@@ -378,9 +372,7 @@
 		AND id = #{id,jdbcType=INTEGER}
 	</select>
 
-	<insert id="addFile" parameterType="me.leig.filemanager.dao.model.File"
-		useGeneratedKeys="true"
-		keyProperty="id">
+	<insert id="addFile" keyProperty="id" parameterType="me.leig.filemanager.dao.model.File" useGeneratedKeys="true">
 	  insert into file
 	  <trim prefix="(" suffix=")" suffixOverrides=",">
 	    <if test="title != null">

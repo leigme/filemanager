@@ -1,38 +1,67 @@
 package me.leig.filemanager.dao.model;
 
 import java.util.Date;
+import java.io.Serializable;
 
-public class File extends BaseModel {
+public class File extends BaseModel implements Serializable {
 	
     private Integer id;
 
-    private String title;
+	private String title;
 
-    private Integer filetype;
+	private Integer filetype;
 
-    private String mimetype;
+	private String mimetype;
 
-    private Long filesize;
+	private Long filesize;
 
-    private String content;
+	private Date createtime;
 
-    private String saveurl;
+	private Date uploadtime;
 
-    private String tempurl;
+	private Date updatetime;
 
-    private String longitude;
+	private Date deletetime;
 
-    private String latitude;
-    
-    private Date createtime;
+	private Integer deleteflag;
 
-    private Date uploadtime;
+	private String content;
 
-    private Date updatetime;
+	private String saveurl;
 
-    private Date deletetime;
+	private String tempurl;
 
-    private Integer deleteflag;
+	private String longitude;
+
+	private String latitude;
+
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(getClass().getSimpleName());
+		sb.append(" [");
+		sb.append("Hash = ").append(hashCode());
+		sb.append(", id=").append(id);
+		sb.append(", title=").append(title);
+		sb.append(", filetype=").append(filetype);
+		sb.append(", mimetype=").append(mimetype);
+		sb.append(", filesize=").append(filesize);
+		sb.append(", createtime=").append(createtime);
+		sb.append(", uploadtime=").append(uploadtime);
+		sb.append(", updatetime=").append(updatetime);
+		sb.append(", deletetime=").append(deletetime);
+		sb.append(", deleteflag=").append(deleteflag);
+		sb.append(", content=").append(content);
+		sb.append(", saveurl=").append(saveurl);
+		sb.append(", tempurl=").append(tempurl);
+		sb.append(", longitude=").append(longitude);
+		sb.append(", latitude=").append(latitude);
+		sb.append(", serialVersionUID=").append(serialVersionUID);
+		sb.append("]");
+		return sb.toString();
+	}
 
     public Integer getId() {
         return id;

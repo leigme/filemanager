@@ -3,10 +3,17 @@
   PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-	<properties resource="config/mybatis-generator/mybatisGenerator.yml"/>
+	<!-- <properties resource="config/mybatis-generator/mybatisGenerator.yml"/> -->
+	<properties resource="application.yml"/>
     <!--数据库驱动-->
-    <classPathEntry location="C:\Users\leig\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
-    <context id="MySqlTables" targetRuntime="MyBatis3">
+    <!-- <classPathEntry location="C:\Users\leig\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/> -->
+    <context id="MysqlTables" targetRuntime="MyBatis3" defaultModelType="flat">
+	    <property name="autoDelimitKeywords" value="true" />
+	    <property name="beginningDelimiter" value="`" />
+	    <property name="endingDelimiter" value="`" />
+	    <property name="javaFileEncoding" value="utf-8" />
+	    <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
         <commentGenerator>
             <property name="suppressDate" value="true"/>
             <property name="suppressAllComments" value="true"/>
@@ -17,6 +24,13 @@
         	userId="${jdbc_username}" 
         	password="${jdbc_password}">
         </jdbcConnection>
+        
+<!--         <jdbcConnection driverClass="${spring.datasource.driver-class-name}" 
+        	connectionURL="${spring.datasource.url}" 
+        	userId="${spring.datasource.username}" 
+        	password="${spring.datasource.password}">
+        </jdbcConnection> -->
+        
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>

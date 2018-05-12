@@ -1,7 +1,7 @@
 package me.leig.filemanager.dao.model;
 
 /**
- * 
+ * 模型基类
  *
  * @author leig
  * @version 20180301
