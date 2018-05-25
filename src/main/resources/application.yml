@@ -1,6 +1,9 @@
 server:
   port: 9999
-  
+
+web:
+  upload-path: D:\temp\images\
+
 # MyBatis配置
 mybatis:
   mapper-locations: classpath*:me/leig/filemanager/dao/map/*.xml
@@ -18,3 +21,5 @@ spring:
     username: ${jdbc_username}
     password: ${jdbc_password}
     driver-class-name: ${jdbc_driver}
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
