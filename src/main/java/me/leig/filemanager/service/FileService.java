@@ -26,6 +26,9 @@ import me.leig.filemanager.dao.model.File;
 @Service
 public class FileService {
 	
+	/**
+	 * 文件持久化操作
+	 */
 	@Autowired
 	private FileMapper fileMapper;
 	
@@ -59,6 +62,7 @@ public class FileService {
 			return responseFiles;
 		}
 		
+		// 查询记录集合
 		List<File> files = fileMapper.findFiles(file);
 		
 		responseFiles.setRecordCount(total);
@@ -96,6 +100,7 @@ public class FileService {
 			return responseFile;
 		}
 		
+		// 初始化参数
 		if (null == file.getCreatetime()) {
 			file.setCreatetime(new Date());	
 		}
@@ -103,6 +108,7 @@ public class FileService {
 		file.setUploadtime(new Date());
 		file.setDeleteflag(Constant.status_normal);
 		
+		// 添加操作
 		int result = fileMapper.addFile(file);
 		
 		if (0 >= result) {
@@ -137,6 +143,7 @@ public class FileService {
 		
 		List<File> files = new ArrayList<>();
 		
+		// 批量添加
 		for (RequestFile rFile: requestFiles) {
 			ResponseFile responseFile = addFile(rFile);
 			if(responseFile.isErrorFlag()) {
@@ -170,10 +177,12 @@ public class FileService {
 			return responseFile;
 		}
 		
+		// 初始化参数
 		if (null == file.getUpdatetime()) {
 			file.setUpdatetime(new Date());
 		}
 		
+		// 文件更新操作
 		int result = fileMapper.updateFile(file);
 		
 		if (0 >= result) {
@@ -208,6 +217,7 @@ public class FileService {
 		
 		List<File> files = new ArrayList<>();
 		
+		// 批量更新
 		for (RequestFile rFile: rFiles) {
 			ResponseFile responseFile = updateFile(rFile);
 			if (responseFile.isErrorFlag()) {

@@ -1,7 +1,7 @@
 package me.leig.filemanager.comm;
 
 /**
- * 
+ * 工具盒子
  *
  * @author leig
  * @version 20180301
@@ -18,11 +18,17 @@ public class Toolbox {
 	 * @return
 	 */
 	public static int pageToStart(int page, int limit) {
+		if (0 >= page || 0 >= limit) {
+			return 0;
+		}
 		int start = (page - 1) * limit;
 		return start > 0 ? start : 0;
 	}
 	
 	public static int pageForTotal(int total, int limit) {
+		if (0 >= total || 0 >= limit) {
+			return 0;
+		}
 		return (total + limit - 1) / limit;
 	}
 	

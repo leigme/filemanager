@@ -12,6 +12,7 @@ import me.leig.filemanager.dao.model.File;
 
 public class ResponseFile extends BaseResponse {
 	
+	// 文件对象
 	private File data;
 
 	public File getData() {

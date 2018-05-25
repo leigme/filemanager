@@ -14,10 +14,13 @@ import me.leig.filemanager.dao.model.File;
 
 public class ResponseFiles extends BaseResponse {
 	
+	// 文件对象集合
 	private List<File> files;
 	
+	// 记录总数
 	private int recordCount;
 	
+	// 页码总数
 	private int pageCount;
 
 	public List<File> getFiles() {

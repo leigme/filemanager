@@ -10,10 +10,13 @@ package me.leig.filemanager.controller.bean;
 
 public abstract class BaseResponse {
 	
+	// 错误标志
 	private boolean errorFlag = false;
 	
+	// 错误编号
 	private String errorCode = "";
 	
+	// 错误消息
 	private String errorMsg = "";
 
 	public boolean isErrorFlag() {
