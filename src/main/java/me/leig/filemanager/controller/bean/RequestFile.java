@@ -21,5 +21,5 @@ public class RequestFile extends BaseRequest {
 
 	public void setData(File data) {
 		this.data = data;
-	}	
+	}
 }
